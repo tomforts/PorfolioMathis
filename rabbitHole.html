@@ -28,14 +28,14 @@
         scroll-behavior: smooth;
       }
       p.description {
-        color: white;
+        color: #fff;
         font-size: 1.8rem;
         max-width: 600px;
-        margin: 20px auto 20px auto;
+        margin: 20px auto 10px auto;
         text-align: center;
       }
       .container {
-        height: 800vh;
+        height: auto;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -47,7 +47,6 @@
         flex-direction: column;
         align-items: center;
         width: auto;
-        text-align: left;
         padding: 0 5vw;
         box-sizing: border-box;
         font-family: "Copperplate", "Papyrus", fantasy;
@@ -61,8 +60,7 @@
       .image-container:nth-child(3n) {
         align-items: flex-end;
       }
-      img,
-      video {
+      img {
         max-width: 80vw;
         max-height: 80vh;
         object-fit: contain;
@@ -70,14 +68,13 @@
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         transition: transform 0.3s ease;
       }
-      img:hover,
-      video:hover {
+      img:hover {
         transform: scale(1.01);
       }
       .caption {
         margin-top: 10px;
         font-size: 1.2rem;
-        color: #fff;
+        color: #333;
       }
       .footer {
         position: fixed;
@@ -182,29 +179,6 @@
         background-repeat: no-repeat;
         mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%);
         -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%);
-      }
-      footer {
-        background: #0e1209;
-        color: #cccccc;
-        padding: 20px;
-        text-align: center;
-        font-size: 1rem;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        z-index: 10;
-      }
-
-      .menu a {
-        margin: 0 15px;
-        color: #a4c639;
-        text-decoration: none;
-        font-weight: bold;
-      }
-
-      .menu a:hover {
-        text-decoration: underline;
       }
       footer a.active {
         border: 2px solid #a4c639;
