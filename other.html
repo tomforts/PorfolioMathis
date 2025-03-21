@@ -4,253 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio Mathis Dufour</title>
-    <style>
-      .top-image-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 70vh; /* Adjusted height to prevent image from being too high */
-        padding: 20px 0;
-      }
-
-      .top-image-container img {
-        max-width: 80%; /* Adjust as needed */
-        max-height: 90%;
-        box-shadow: none;
-        object-fit: contain;
-      }
-
-      body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background-color: #121b00;
-        transition: background-color 0.5s ease;
-        overflow-x: hidden; /* Prevent horizontal scrolling */
-        scroll-behavior: smooth; /* Enable smooth scrolling */
-      }
-
-      .container {
-        height: auto; /* Keeps the scrollable area large */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 400px; /* Increased space between images */
-        padding-top: 50px; /* Adjusted padding for top space */
-      }
-
-      .image-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%; /* Use full width without exceeding the viewport */
-        text-align: left;
-        padding: 0 5vw; /* Adds space between images and page borders */
-        box-sizing: border-box; /* Ensures padding doesn't overflow */
-        font-family: "Copperplate", "Papyrus", fantasy;
-      }
-
-      /* Center image */
-      .image-container:nth-child(3n + 1) {
-        align-items: center;
-        text-align: left;
-      }
-
-      /* Align left image */
-      .image-container:nth-child(3n + 2) {
-        align-items: flex-start;
-        text-align: left;
-      }
-
-      /* Align right image */
-      .image-container:nth-child(3n) {
-        align-items: flex-end;
-        text-align: left;
-      }
-
-      img {
-        max-width: 80vw; /* Limits the width to 80% of the viewport */
-        max-height: 80vh; /* Limits the height to 80% of the viewport */
-        object-fit: contain; /* Maintains aspect ratio while fitting within the container */
-        border-radius: 0px;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        transition: transform 0.3s ease;
-      }
-
-      img:hover {
-        transform: scale(1.01); /* Slightly enlarges on hover */
-      }
-
-      .caption {
-        margin-top: 10px;
-        font-size: 1.2rem;
-        color: #333;
-      }
-
-      .footer {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background-color: rgba(0, 0, 0, 0);
-        color: white;
-        padding: 10px 20px;
-        font-size: 1.5rem;
-        z-index: 10;
-        display: flex;
-        justify-content: flex-start;
-      }
-      .dropdown {
-        position: relative;
-        display: inline-block;
-        width: auto;
-      }
-      .dropbtn {
-        background-color: transparent;
-        color: rgb(0, 0, 0);
-        padding: 10px 20px;
-        font-size: 1.5rem;
-        border: none;
-        cursor: pointer;
-        border-radius: 5px;
-        text-align: left;
-        display: block;
-        font-family: "Coppertone", sans-serif;
-      }
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        bottom: 30px;
-        left: 0;
-        background-color: transparent;
-        min-width: 160px;
-        z-index: 1;
-        font-family: "Coppertone", sans-serif;
-      }
-      .dropdown:hover .dropdown-content {
-        display: block;
-      }
-      .dropdown-content a {
-        color: rgb(0, 0, 0);
-        text-decoration: none;
-        display: block;
-        font-size: 1.5rem;
-        padding: 10px;
-      }
-      .dropdown-content a:hover {
-        color: rgb(120, 120, 120);
-      }
-      .back-to-top img a:hover {
-        color: rgb(120, 120, 120);
-      }
-
-      /* House icon styling */
-      .back-to-top {
-        position: absolute;
-        right: 60px; /* Position it to the right of the footer */
-        top: 50%; /* Vertically center it */
-        transform: translateY(-50%); /* Adjust for perfect centering */
-        text-decoration: none; /* Remove underline */
-      }
-
-      .back-to-top img {
-        width: 30px; /* Adjust size of the icon */
-        height: 30px;
-        cursor: pointer;
-      }
-
-      .back-to-top img {
-        box-shadow: none;
-      }
-
-      .back-to-top img:hover {
-        transform: scale(1.2);
-      }
-
-      html,
-      body {
-        cursor: url("star-4pt-round.svg") 4 4, auto; /* Set cursor hotspot */
-      }
-
-      .back-to-top img {
-        cursor: url("star-4pt-round.svg") 4 4, auto; /* Ensure cursor is the same when hovering over the icon */
-      }
-
-      button,
-      a,
-      .dropbtn {
-        cursor: url("star-4pt-round.svg") 4 4, auto; /* Ensure the cursor stays the same for interactive elements */
-      }
-
-      .hamburger-icon {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 30px; /* Adjust width as needed */
-        height: 20px; /* Adjust height as needed */
-        background: transparent;
-        border: none;
-        cursor: pointer;
-      }
-
-      .line {
-        height: 1.6px; /* Line thickness */
-        background-color: #000; /* Line color */
-        border-radius: 3px;
-        width: 100%;
-      }
-
-      #section0 {
-        width: 100%;
-        height: 1000px; /* Adjust this value for desired depth */
-        background-image: url("background.jpg"); /* Replace with your image */
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        /* Add a gradient mask to fade the bottom quarter */
-        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%);
-        -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%);
-      }
-      footer {
-        background: #0e1209;
-        color: #cccccc;
-        padding: 20px;
-        text-align: center;
-        font-size: 1rem;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        z-index: 10;
-      }
-
-      .menu a {
-        margin: 0 15px;
-        color: #a4c639;
-        text-decoration: none;
-        font-weight: bold;
-      }
-
-      .menu a:hover {
-        text-decoration: underline;
-      }
-
-      footer a.active {
-        border: 2px solid #a4c639;
-        padding: 5px 10px;
-        border-radius: 5px;
-      }
-      .top-text-container {
-        text-align: center;
-      }
-      .big-text {
-        font-size: 10rem;
-        color: #a9a9a9;
-        font-family: Arial, sans-serif;
-        font-weight: bold;
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <section id="section0">
@@ -352,12 +106,30 @@
         { id: "img16", color: "#F44336" },
       ];
 
+      function isDarkColor(hex) {
+        const c = hex.substring(1);
+        const rgb = parseInt(c, 16);
+        const r = (rgb >> 16) & 0xff;
+        const g = (rgb >> 8) & 0xff;
+        const b = (rgb >> 0) & 0xff;
+        const luma = 0.299 * r + 0.587 * g + 0.114 * b;
+        return luma < 60;
+      }
+
       window.addEventListener("scroll", () => {
         sections.forEach((section) => {
           const img = document.getElementById(section.id);
           const rect = img.getBoundingClientRect();
           if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
             document.body.style.backgroundColor = section.color;
+            const footer = document.querySelector(".footer");
+            if (isDarkColor(section.color)) {
+              footer.classList.add("footer-black");
+              document.body.style.cursor = 'url("star-4pt-round-white.svg") 4 4, auto';
+            } else {
+              footer.classList.remove("footer-black");
+              document.body.style.cursor = 'url("star-4pt-round.svg") 4 4, auto';
+            }
           }
         });
       });
