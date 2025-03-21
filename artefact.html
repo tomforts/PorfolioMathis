@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Scrollable Image Page</title>
+    <title>Portfolio Mathis Dufour</title>
     <style>
       .top-image-container {
         display: flex;
@@ -76,30 +76,6 @@
         font-size: 1.2rem;
         color: #333;
       }
-      footer {
-        background: #0e1209;
-        color: #cccccc;
-        padding: 20px;
-        text-align: center;
-        font-size: 1rem;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        z-index: 10;
-      }
-
-      .menu a {
-        margin: 0 15px;
-        color: #a4c639;
-        text-decoration: none;
-        font-weight: bold;
-      }
-
-      .menu a:hover {
-        text-decoration: underline;
-      }
-
       .footer {
         position: fixed;
         bottom: 0;
@@ -119,16 +95,16 @@
         width: auto;
       }
       .dropbtn {
-        background-color: #4caf4f00;
+        background-color: transparent;
         color: rgb(0, 0, 0);
         padding: 10px 20px;
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         border: none;
         cursor: pointer;
         border-radius: 5px;
         text-align: left;
         display: block;
-        font-family: "Copperplate", "Papyrus", fantasy;
+        font-family: "Coppertone", sans-serif;
       }
       .dropdown-content {
         display: none;
@@ -138,7 +114,7 @@
         background-color: transparent;
         min-width: 160px;
         z-index: 1;
-        font-family: "Copperplate", "Papyrus", fantasy;
+        font-family: "Coppertone", sans-serif;
       }
       .dropdown:hover .dropdown-content {
         display: block;
@@ -147,7 +123,7 @@
         color: rgb(0, 0, 0);
         text-decoration: none;
         display: block;
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         padding: 10px;
       }
       .dropdown-content a:hover {
@@ -226,43 +202,54 @@
     </p>
     <div class="container">
       <div class="image-container" id="section1">
-        <img id="img1" src="artefact/F2C160B8-8E03-4D92-AC0A-210A292F788F-ezgif.com-video-to-gif-converter.gif" alt="Image 1" />
-        <div class="caption"></div>
-      </div>
-      <div class="image-container" id="section1">
-        <img id="img2" src="artefact/IMG_6228-ezgif.com-video-to-gif-converter.gif" alt="Image 1" />
-        <div class="caption"></div>
-      </div>
-      <div class="image-container" id="section1">
-        <img id="img2" src="artefact/Screenshot 2025-03-21 002922.png" alt="Image 1" />
-        <div class="caption"></div>
-      </div>
-      <div class="image-container" id="section1">
-        <img id="img3" src="artefact/crystalv2.png" alt="Image 1" />
+        <img id="img1" src="artefact/crystalv2.png" alt="Image 1" />
         <div class="caption"></div>
       </div>
       <div class="image-container" id="section2">
-        <img id="img4" src="artefact/crystalv2Dos.png" alt="Image 2" />
+        <img id="img2" src="artefact/crystalv2Dos.png" alt="Image 2" />
         <div class="caption"></div>
       </div>
       <div class="image-container" id="section3">
-        <img id="img5" src="artefact/crystalv3.png" alt="Image 3" />
+        <img id="img3" src="artefact/crystalv3.png" alt="Image 3" />
         <div class="caption"></div>
       </div>
       <div class="image-container" id="section4">
-        <img id="img6" src="artefact/crystalv4.png" alt="Image 4" />
+        <img id="img4" src="artefact/crystalv4.png" alt="Image 4" />
+        <div class="caption"></div>
+      </div>
+      <div class="image-container" id="section5">
+        <img id="img5" src="artefact/F2C160B8-8E03-4D92-AC0A-210A292F788F-ezgif.com-video-to-gif-converter.gif" alt="Image 5" />
+        <div class="caption"></div>
+      </div>
+      <div class="image-container" id="section6">
+        <img id="img6" src="artefact/IMG_6228-ezgif.com-video-to-gif-converter.gif" alt="Image 6" />
+        <div class="caption"></div>
+      </div>
+      <div class="image-container" id="section7">
+        <img id="img7" src="artefact/Screenshot 2025-03-21 002922.png" alt="Image 7" />
         <div class="caption"></div>
       </div>
     </div>
-    <footer>
-      <div class="menu">
-        <a href="index.html" id="home">Accueil</a>
-        <a href="rabbitHole.html" id="rabbitHole">Rabbit Hole</a>
-        <a href="artefact.html" id="artefact">Artefact</a>
-        <a href="other.html" id="other">Autre</a>
-        <a href="about.html" id="about">À propos</a>
+    <div class="footer">
+      <div class="dropdown">
+        <button class="dropbtn">
+          <div class="hamburger-icon">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+          </div>
+        </button>
+        <div class="dropdown-content">
+          <a href="rabbitHole.html">Rabbit Hole</a>
+          <a href="artefact.html">Artefact</a>
+          <a href="other.html">Autre</a>
+          <a href="about.html">Info</a>
+        </div>
       </div>
-    </footer>
+      <a href="index.html" class="back-to-top">
+        <img src="house-icon-md.png" alt="Back to Top" />
+      </a>
+    </div>
     <script>
       const sections = [
         { id: "img1", color: "#ea644f" },
@@ -270,6 +257,8 @@
         { id: "img3", color: "#070707" },
         { id: "img4", color: "#494946" },
         { id: "img5", color: "#dd332b" },
+        { id: "img6", color: "#39382d" },
+        { id: "img7", color: "#6b6554" },
       ];
       window.addEventListener("scroll", () => {
         sections.forEach((section) => {
@@ -277,17 +266,6 @@
           const rect = img.getBoundingClientRect();
           if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
             document.body.style.backgroundColor = section.color;
-          }
-        });
-      });
-
-      window.addEventListener("load", () => {
-        const currentPage = window.location.pathname.split("/").pop();
-        const menuLinks = document.querySelectorAll(".menu a");
-
-        menuLinks.forEach((link) => {
-          if (link.getAttribute("href") === currentPage) {
-            link.classList.add("active");
           }
         });
       });

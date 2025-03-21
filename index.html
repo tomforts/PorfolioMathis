@@ -92,16 +92,16 @@
         width: auto;
       }
       .dropbtn {
-        background-color: #4caf4f00;
+        background-color: transparent;
         color: rgb(0, 0, 0);
         padding: 10px 20px;
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         border: none;
         cursor: pointer;
         border-radius: 5px;
         text-align: left;
         display: block;
-        font-family: "Copperplate", "Papyrus", fantasy;
+        font-family: "Coppertone", sans-serif;
       }
       .dropdown-content {
         display: none;
@@ -111,7 +111,7 @@
         background-color: transparent;
         min-width: 160px;
         z-index: 1;
-        font-family: "Copperplate";
+        font-family: "Coppertone", sans-serif;
       }
       .dropdown:hover .dropdown-content {
         display: block;
@@ -120,7 +120,7 @@
         color: rgb(0, 0, 0);
         text-decoration: none;
         display: block;
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         padding: 10px;
       }
       .dropdown-content a:hover {
@@ -178,34 +178,6 @@
         -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%);
         margin-bottom: 50px;
       }
-      footer {
-        background: #0e1209;
-        color: #cccccc;
-        padding: 20px;
-        text-align: center;
-        font-size: 1rem;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        z-index: 10;
-      }
-
-      .menu a {
-        margin: 0 15px;
-        color: #a4c639;
-        text-decoration: none;
-        font-weight: bold;
-      }
-
-      .menu a:hover {
-        text-decoration: underline;
-      }
-      footer a.active {
-        border: 2px solid #a4c639;
-        padding: 5px 10px;
-        border-radius: 5px;
-      }
     </style>
   </head>
   <body>
@@ -255,15 +227,26 @@
         <div class="caption"></div>
       </div>
     </div>
-    <footer>
-      <div class="menu">
-        <a href="index.html">Accueil</a>
-        <a href="rabbitHole.html">Rabbit Hole</a>
-        <a href="artefact.html">Artefact</a>
-        <a href="other.html">Autre</a>
-        <a href="about.html">À propos</a>
+    <div class="footer">
+      <div class="dropdown">
+        <button class="dropbtn">
+          <div class="hamburger-icon">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+          </div>
+        </button>
+        <div class="dropdown-content">
+          <a href="rabbitHole.html">Rabbit Hole</a>
+          <a href="artefact.html">Artefact</a>
+          <a href="other.html">Autre</a>
+          <a href="about.html">Info</a>
+        </div>
       </div>
-    </footer>
+      <a href="index.html" class="back-to-top">
+        <img src="house-icon-md.png" alt="Back to Top" />
+      </a>
+    </div>
     <script>
       const sections = [
         { id: "img1", color: "#ea644f" },
@@ -286,7 +269,6 @@
         });
       });
     </script>
-
     <script>
       const imageContainers = document.querySelectorAll(".container .image-container");
       imageContainers.forEach((container, index) => {
@@ -299,17 +281,6 @@
             window.location.href = "artefact.html";
           });
         }
-      });
-
-      window.addEventListener("load", () => {
-        const currentPage = window.location.pathname.split("/").pop();
-        const menuLinks = document.querySelectorAll(".menu a");
-
-        menuLinks.forEach((link) => {
-          if (link.getAttribute("href") === currentPage) {
-            link.classList.add("active");
-          }
-        });
       });
     </script>
   </body>

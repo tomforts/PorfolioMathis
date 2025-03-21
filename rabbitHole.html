@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Scrollable Image Page</title>
+    <title>Portfolio Mathis Dufour</title>
     <style>
       .top-image-container {
         display: flex;
@@ -101,13 +101,13 @@
         background-color: transparent;
         color: rgb(0, 0, 0);
         padding: 10px 20px;
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         border: none;
         cursor: pointer;
         border-radius: 5px;
         text-align: left;
         display: block;
-        font-family: "Copperplate", "Papyrus", fantasy;
+        font-family: "Coppertone", sans-serif;
       }
       .dropdown-content {
         display: none;
@@ -117,7 +117,7 @@
         background-color: transparent;
         min-width: 160px;
         z-index: 1;
-        font-family: "Copperplate", "Papyrus", fantasy;
+        font-family: "Coppertone", sans-serif;
       }
       .dropdown:hover .dropdown-content {
         display: block;
@@ -126,7 +126,7 @@
         color: rgb(0, 0, 0);
         text-decoration: none;
         display: block;
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         padding: 10px;
       }
       .dropdown-content a:hover {
@@ -229,47 +229,58 @@
     </p>
     <div class="container">
       <div class="image-container" id="section1">
-        <img id="img1" src="premiereRabbit.png" alt="Image 1" />
-        <div class="caption"></div>
-      </div>
-      <div class="image-container" id="section1">
-        <img id="img2" src="deuxiemeRabbit.png" alt="Image 1" />
-        <div class="caption"></div>
-      </div>
-      <div class="image-container" id="section1">
-        <img id="img3" src="materiel.png" alt="Image 1" />
-        <div class="caption"></div>
-      </div>
-      <div class="image-container" id="section1">
-        <img id="img4" src="fronthoodgif.gif" alt="Image 1" />
+        <img id="img1" src="fronthoodgif.gif" alt="Image 1" />
         <div class="caption"></div>
       </div>
       <div class="image-container" id="section2">
-        <img id="img5" src="sidehoodgif.gif" alt="Image 2" />
+        <img id="img2" src="sidehoodgif.gif" alt="Image 2" />
         <div class="caption"></div>
       </div>
       <div class="image-container" id="section3">
-        <img id="img6" src="backhoodgif.gif" alt="Image 3" />
+        <img id="img3" src="backhoodgif.gif" alt="Image 3" />
         <div class="caption"></div>
       </div>
       <div class="image-container" id="section4">
-        <img id="img7" src="devantrobegif.gif" alt="Image 4" />
+        <img id="img4" src="devantrobegif.gif" alt="Image 4" />
         <div class="caption"></div>
       </div>
       <div class="image-container" id="section5">
-        <img id="img8" src="siderobegif.gif" alt="Image 5" />
+        <img id="img5" src="siderobegif.gif" alt="Image 5" />
+        <div class="caption"></div>
+      </div>
+      <div class="image-container" id="section6">
+        <img id="img6" src="premiereRabbit.png" alt="Image 6" />
+        <div class="caption"></div>
+      </div>
+      <div class="image-container" id="section7">
+        <img id="img7" src="deuxiemeRabbit.png" alt="Image 7" />
+        <div class="caption"></div>
+      </div>
+      <div class="image-container" id="section8">
+        <img id="img8" src="materiel.png" alt="Image 8" />
         <div class="caption"></div>
       </div>
     </div>
-    <footer>
-      <div class="menu">
-        <a href="index.html">Accueil</a>
-        <a href="rabbitHole.html">Rabbit Hole</a>
-        <a href="artefact.html">Artefact</a>
-        <a href="other.html">Autre</a>
-        <a href="about.html">À propos</a>
+    <div class="footer">
+      <div class="dropdown">
+        <button class="dropbtn">
+          <div class="hamburger-icon">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+          </div>
+        </button>
+        <div class="dropdown-content">
+          <a href="rabbitHole.html">Rabbit Hole</a>
+          <a href="artefact.html">Artefact</a>
+          <a href="other.html">Autre</a>
+          <a href="about.html">Info</a>
+        </div>
       </div>
-    </footer>
+      <a href="index.html" class="back-to-top">
+        <img src="house-icon-md.png" alt="Back to Top" />
+      </a>
+    </div>
     <script>
       const sections = [
         { id: "img1", color: "#ea644f" },
