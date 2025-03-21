@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scrollable Image Page</title>
+    <style>
+      .top-image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 70vh;
+        padding: 20px 0;
+      }
+      .top-image-container img {
+        max-width: 80%;
+        max-height: 90%;
+        box-shadow: none;
+        object-fit: contain;
+      }
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #121b00;
+        transition: background-color 0.5s ease;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+      }
+      .container {
+        height: 800vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 400px;
+        padding-top: 50px;
+      }
+      .image-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        text-align: left;
+        padding: 0 5vw;
+        box-sizing: border-box;
+        font-family: "Copperplate", "Papyrus", fantasy;
+      }
+      .image-container:nth-child(3n + 1) {
+        align-items: center;
+        text-align: left;
+      }
+      .image-container:nth-child(3n + 2) {
+        align-items: flex-start;
+        text-align: left;
+      }
+      .image-container:nth-child(3n) {
+        align-items: flex-end;
+        text-align: left;
+      }
+      img {
+        max-width: 80vw;
+        max-height: 80vh;
+        object-fit: contain;
+        border-radius: 0;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+      }
+      img:hover {
+        transform: scale(1.01);
+      }
+      .caption {
+        margin-top: 10px;
+        font-size: 1.2rem;
+        color: #333;
+      }
+      .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0);
+        color: white;
+        padding: 10px 20px;
+        font-size: 1.5rem;
+        z-index: 10;
+        display: flex;
+        justify-content: flex-start;
+      }
+      .dropdown {
+        position: relative;
+        display: inline-block;
+        width: auto;
+      }
+      .dropbtn {
+        background-color: #4caf4f00;
+        color: rgb(0, 0, 0);
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        text-align: left;
+        display: block;
+        font-family: "Copperplate", "Papyrus", fantasy;
+      }
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        bottom: 30px;
+        left: 0;
+        background-color: transparent;
+        min-width: 160px;
+        z-index: 1;
+        font-family: "Copperplate";
+      }
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+      .dropdown-content a {
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        display: block;
+        font-size: 1.2rem;
+        padding: 10px;
+      }
+      .dropdown-content a:hover {
+        color: rgb(120, 120, 120);
+      }
+      .back-to-top {
+        position: absolute;
+        right: 60px;
+        top: 50%;
+        transform: translateY(-50%);
+        text-decoration: none;
+      }
+      .back-to-top img {
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        box-shadow: none;
+      }
+      .back-to-top img:hover {
+        transform: scale(1.2);
+      }
+      html,
+      body {
+        cursor: url("star-4pt-round.svg") 4 4, auto;
+      }
+      button,
+      a,
+      .dropbtn {
+        cursor: url("star-4pt-round.svg") 4 4, auto;
+      }
+      .hamburger-icon {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 20px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+      }
+      .line {
+        height: 1.6px;
+        background-color: #000;
+        border-radius: 3px;
+        width: 100%;
+      }
+      #section0 {
+        width: 100%;
+        height: 1000px;
+        background-image: url("background.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%);
+        -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%);
+        margin-bottom: 50px;
+      }
+      footer {
+        background: #0e1209;
+        color: #cccccc;
+        padding: 20px;
+        text-align: center;
+        font-size: 1rem;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 10;
+      }
+
+      .menu a {
+        margin: 0 15px;
+        color: #a4c639;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .menu a:hover {
+        text-decoration: underline;
+      }
+      footer a.active {
+        border: 2px solid #a4c639;
+        padding: 5px 10px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div lcass="custom-cursor site-wide">
+      <div calss="pointer"></div>
+    </div>
+    <section id="section0">
+      <div class="top-image-container">
+        <img src="logomat.png" alt="Top Image" />
+      </div>
+    </section>
+    <div class="container" style="margin-top: 1000px">
+      <div class="image-container" id="section1">
+        <img id="img1" src="fronthoodgif.gif" alt="Image 1" />
+        <div class="caption"></div>
+      </div>
+      <div class="image-container" id="section2">
+        <img id="img2" src="sidehoodgif.gif" alt="Image 2" />
+        <div class="caption"></div>
+      </div>
+      <div class="image-container" id="section3">
+        <img id="img3" src="backhoodgif.gif" alt="Image 3" />
+        <div class="caption"></div>
+      </div>
+      <div class="image-container" id="section4">
+        <img id="img4" src="devantrobegif.gif" alt="Image 4" />
+        <div class="caption"></div>
+      </div>
+      <div class="image-container" id="section5">
+        <img id="img5" src="siderobegif.gif" alt="Image 5" />
+        <div class="caption"></div>
+      </div>
+      <div class="image-container" id="section6">
+        <img id="img6" src="artefact/crystalv2.png" alt="Image 5" />
+        <div class="caption"></div>
+      </div>
+      <div class="image-container" id="section7">
+        <img id="img7" src="artefact/crystalv2Dos.png" alt="Image 5" />
+        <div class="caption"></div>
+      </div>
+      <div class="image-container" id="section8">
+        <img id="img8" src="artefact/crystalv3.png" alt="Image 5" />
+        <div class="caption"></div>
+      </div>
+      <div class="image-container" id="section9">
+        <img id="img9" src="artefact/crystalv4.png" alt="Image 5" />
+        <div class="caption"></div>
+      </div>
+    </div>
+    <footer>
+      <div class="menu">
+        <a href="index.html">Accueil</a>
+        <a href="rabbitHole.html">Rabbit Hole</a>
+        <a href="artefact.html">Artefact</a>
+        <a href="other.html">Autre</a>
+        <a href="about.html">À propos</a>
+      </div>
+    </footer>
+    <script>
+      const sections = [
+        { id: "img1", color: "#ea644f" },
+        { id: "img2", color: "#dcdac9" },
+        { id: "img3", color: "#070707" },
+        { id: "img4", color: "#494946" },
+        { id: "img5", color: "#dd332b" },
+        { id: "img6", color: "#39382d" },
+        { id: "img7", color: "#6b6554" },
+        { id: "img8", color: "#c9c5b8" },
+        { id: "img9", color: "#000000" },
+      ];
+      window.addEventListener("scroll", () => {
+        sections.forEach((section) => {
+          const img = document.getElementById(section.id);
+          const rect = img.getBoundingClientRect();
+          if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+            document.body.style.backgroundColor = section.color;
+          }
+        });
+      });
+    </script>
+
+    <script>
+      const imageContainers = document.querySelectorAll(".container .image-container");
+      imageContainers.forEach((container, index) => {
+        if (index < 5) {
+          container.addEventListener("click", function () {
+            window.location.href = "rabbitHole.html";
+          });
+        } else if (index < 9) {
+          container.addEventListener("click", function () {
+            window.location.href = "artefact.html";
+          });
+        }
+      });
+
+      window.addEventListener("load", () => {
+        const currentPage = window.location.pathname.split("/").pop();
+        const menuLinks = document.querySelectorAll(".menu a");
+
+        menuLinks.forEach((link) => {
+          if (link.getAttribute("href") === currentPage) {
+            link.classList.add("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

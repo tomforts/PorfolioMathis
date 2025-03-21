@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mon Portfolio</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Helvetica Neue", sans-serif;
+        background-color: #121b00;
+        color: #f5f5f5;
+        line-height: 1.6;
+        padding-bottom: 100px;
+      }
+
+      header {
+        text-align: center;
+        padding: 50px 20px;
+        background: linear-gradient(to bottom, #1f2a16, #121b00);
+      }
+
+      header img {
+        width: 150px;
+        border-radius: 50%;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        margin-bottom: 20px;
+      }
+
+      header h1 {
+        font-size: 2.5rem;
+        margin: 10px 0;
+        letter-spacing: 2px;
+      }
+
+      header p {
+        font-size: 1.2rem;
+        color: #cccccc;
+      }
+
+      .infos {
+        text-align: center;
+        margin: 30px 0;
+        font-size: 1.1rem;
+      }
+
+      .infos a {
+        color: #a4c639;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .infos a:hover {
+        text-decoration: underline;
+      }
+
+      .section {
+        max-width: 900px;
+        margin: 50px auto;
+        background: #1a260f;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+      }
+
+      .section img {
+        width: 100%;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+      }
+
+      .section .caption {
+        font-size: 1.2rem;
+        color: #e0e0e0;
+      }
+
+      footer {
+        background: #0e1209;
+        color: #cccccc;
+        padding: 20px;
+        text-align: center;
+        font-size: 1rem;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 10;
+      }
+
+      .menu a {
+        margin: 0 15px;
+        color: #a4c639;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .menu a:hover {
+        text-decoration: underline;
+      }
+
+      .back-to-top img {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        right: 30px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+      }
+
+      .back-to-top img:hover {
+        transform: scale(1.2) translateY(-50%);
+      }
+
+      @media (max-width: 600px) {
+        header h1 {
+          font-size: 2rem;
+        }
+
+        .section {
+          padding: 20px;
+        }
+      }
+
+      footer a.active {
+        border: 2px solid #a4c639;
+        padding: 5px 10px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <img src="879A4410.jpg" alt="Photo de moi" />
+      <h1>Fashion Designer</h1>
+      <p>Montréal, Canada</p>
+    </header>
+
+    <div class="infos">
+      <p>📞 514-220-6602</p>
+      <p>💻 <a href="https://vetementshy.com/" target="_blank">vetementshy.com</a></p>
+      <p>✨ Passionné par la mode et les innovations textiles ✨</p>
+    </div>
+
+    <section class="section">
+      <img src="879A4410.jpg" alt="Portrait" />
+      <div class="caption">
+        Designer de mode passionné basé à Montréal, je transforme mes inspirations en créations innovantes. Maîtrisant les techniques textiles et toujours à la recherche de
+        modernité, je conçois des pièces uniques et fonctionnelles. Mon savoir-faire se nourrit d'un apprentissage rigoureux et d'une créativité sans limites.
+      </div>
+    </section>
+
+    <section class="section" style="margin-bottom: 3000px">
+      <img src="competence_copie.png" alt="Compétences" />
+      <div class="caption"></div>
+    </section>
+
+    <footer>
+      <div class="menu">
+        <a href="index.html">Accueil</a>
+        <a href="rabbitHole.html">Rabbit Hole</a>
+        <a href="artefact.html">Artefact</a>
+        <a href="other.html">Autre</a>
+        <a href="about.html">À propos</a>
+      </div>
+    </footer>
+    <script>
+      window.addEventListener("load", () => {
+        const currentPage = window.location.pathname.split("/").pop();
+        const menuLinks = document.querySelectorAll(".menu a");
+
+        menuLinks.forEach((link) => {
+          if (link.getAttribute("href") === currentPage) {
+            link.classList.add("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

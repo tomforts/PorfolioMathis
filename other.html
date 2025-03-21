@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scrollable Image Page</title>
+    <style>
+      .top-image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 70vh; /* Adjusted height to prevent image from being too high */
+        padding: 20px 0;
+      }
+
+      .top-image-container img {
+        max-width: 80%; /* Adjust as needed */
+        max-height: 90%;
+        box-shadow: none;
+        object-fit: contain;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #121b00;
+        transition: background-color 0.5s ease;
+        overflow-x: hidden; /* Prevent horizontal scrolling */
+        scroll-behavior: smooth; /* Enable smooth scrolling */
+      }
+
+      .container {
+        height: auto; /* Keeps the scrollable area large */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 400px; /* Increased space between images */
+        padding-top: 50px; /* Adjusted padding for top space */
+      }
+
+      .image-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%; /* Use full width without exceeding the viewport */
+        text-align: left;
+        padding: 0 5vw; /* Adds space between images and page borders */
+        box-sizing: border-box; /* Ensures padding doesn't overflow */
+        font-family: "Copperplate", "Papyrus", fantasy;
+      }
+
+      /* Center image */
+      .image-container:nth-child(3n + 1) {
+        align-items: center;
+        text-align: left;
+      }
+
+      /* Align left image */
+      .image-container:nth-child(3n + 2) {
+        align-items: flex-start;
+        text-align: left;
+      }
+
+      /* Align right image */
+      .image-container:nth-child(3n) {
+        align-items: flex-end;
+        text-align: left;
+      }
+
+      img {
+        max-width: 80vw; /* Limits the width to 80% of the viewport */
+        max-height: 80vh; /* Limits the height to 80% of the viewport */
+        object-fit: contain; /* Maintains aspect ratio while fitting within the container */
+        border-radius: 0px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+      }
+
+      img:hover {
+        transform: scale(1.01); /* Slightly enlarges on hover */
+      }
+
+      .caption {
+        margin-top: 10px;
+        font-size: 1.2rem;
+        color: #333;
+      }
+
+      /* Footer Styles */
+      .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0); /* Transparent background */
+        color: white;
+        padding: 10px 20px;
+        font-size: 1.5rem;
+        z-index: 10;
+        display: flex;
+        justify-content: flex-start; /* Align to the left */
+      }
+
+      /* Dropdown Styles */
+      .dropdown {
+        position: relative;
+        display: inline-block;
+        width: auto; /* Ensures the dropdown fits content */
+      }
+
+      .dropbtn {
+        background-color: #4caf4f00;
+        color: rgb(0, 0, 0);
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        text-align: left; /* Align the text to the left */
+        display: block; /* Ensures the button takes up the full width */
+        font-family: "Copperplate", "Papyrus", fantasy;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        bottom: 30px; /* Position the menu above the button */
+        left: 0;
+        background-color: transparent; /* Make the background transparent */
+        min-width: 160px;
+        z-index: 1;
+        font-family: "Copperplate", "Papyrus", fantasy;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      .dropdown-content a {
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        display: block;
+        font-size: 1.2rem;
+        padding: 10px;
+      }
+
+      .dropdown-content a:hover {
+        color: rgb(120, 120, 120);
+      }
+
+      .back-to-top img a:hover {
+        color: rgb(120, 120, 120);
+      }
+
+      /* House icon styling */
+      .back-to-top {
+        position: absolute;
+        right: 60px; /* Position it to the right of the footer */
+        top: 50%; /* Vertically center it */
+        transform: translateY(-50%); /* Adjust for perfect centering */
+        text-decoration: none; /* Remove underline */
+      }
+
+      .back-to-top img {
+        width: 30px; /* Adjust size of the icon */
+        height: 30px;
+        cursor: pointer;
+      }
+
+      .back-to-top img {
+        box-shadow: none;
+      }
+
+      .back-to-top img:hover {
+        transform: scale(1.2);
+      }
+
+      html,
+      body {
+        cursor: url("star-4pt-round.svg") 4 4, auto; /* Set cursor hotspot */
+      }
+
+      .back-to-top img {
+        cursor: url("star-4pt-round.svg") 4 4, auto; /* Ensure cursor is the same when hovering over the icon */
+      }
+
+      button,
+      a,
+      .dropbtn {
+        cursor: url("star-4pt-round.svg") 4 4, auto; /* Ensure the cursor stays the same for interactive elements */
+      }
+
+      .hamburger-icon {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px; /* Adjust width as needed */
+        height: 20px; /* Adjust height as needed */
+        background: transparent;
+        border: none;
+        cursor: pointer;
+      }
+
+      .line {
+        height: 1.6px; /* Line thickness */
+        background-color: #000; /* Line color */
+        border-radius: 3px;
+        width: 100%;
+      }
+
+      #section0 {
+        width: 100%;
+        height: 1000px; /* Adjust this value for desired depth */
+        background-image: url("background.jpg"); /* Replace with your image */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        /* Add a gradient mask to fade the bottom quarter */
+        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%);
+        -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%);
+      }
+      footer {
+        background: #0e1209;
+        color: #cccccc;
+        padding: 20px;
+        text-align: center;
+        font-size: 1rem;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 10;
+      }
+
+      .menu a {
+        margin: 0 15px;
+        color: #a4c639;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .menu a:hover {
+        text-decoration: underline;
+      }
+
+      footer a.active {
+        border: 2px solid #a4c639;
+        padding: 5px 10px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="section0">
+      <div class="top-image-container">
+        <img src="logomat.png" alt="Top Image" />
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="image-container" id="img1">
+        <img src="autre/6B0F82BC-6CC8-4FC6-947A-CFC918D48357.jpeg" alt="Image 1" />
+      </div>
+      <div class="image-container" id="img2">
+        <img src="autre/535f0762-0af3-45ef-9a6b-df09b176c934.JPG" alt="Image 2" />
+      </div>
+      <div class="image-container" id="img3">
+        <img src="autre/345700747_752175066970179_7135443189571287314_n.jpg" alt="Image 3" />
+      </div>
+      <div class="image-container" id="img4">
+        <img src="autre/canvachepoquoi.png" alt="Image 4" />
+      </div>
+      <div class="image-container" id="img1">
+        <img src="autreVideo/IMG_4164-1-ezgif.com-video-to-gif-converter.gif" alt="Image 1" />
+      </div>
+      <div class="image-container" id="img1">
+        <img src="autreVideo/IMG_4605-ezgif.com-video-to-gif-converter.gif" alt="Image 1" />
+      </div>
+      <div class="image-container" id="img5">
+        <img src="autre/d5f2be54-0199-494c-b33c-bf0889f33168.JPG" alt="Image 5" />
+      </div>
+      <div class="image-container" id="img6">
+        <img src="autre/IMG_1597.PNG" alt="Image 6" />
+      </div>
+      <div class="image-container" id="img7">
+        <img src="autre/IMG_1598.PNG" alt="Image 7" />
+      </div>
+      <div class="image-container" id="img8">
+        <img src="autre/patnscanva.png" alt="Image 8" />
+      </div>
+      <div class="image-container" id="img9">
+        <img src="autre/sacoche.png" alt="Image 9" />
+      </div>
+      <div class="image-container" id="img10">
+        <embed src="autre/SHY leather jacket (1) copie copie.pdf" width="50%" height="700px" />
+      </div>
+      <div class="image-container" id="img11">
+        <img src="autre/Screenshot 2025-03-21 001300.png" alt="Image 10" />
+      </div>
+      <div class="image-container" id="img12">
+        <img src="autre/Screenshot 2025-03-21 001332.png" alt="Image 11" />
+      </div>
+      <div class="image-container" id="img13">
+        <img src="autre/Screenshot 2025-03-21 001405.png" alt="Image 12" />
+      </div>
+      <div class="image-container" id="img13">
+        <img src="autre/Screenshot 2025-03-21 001425.png" alt="Image 13" />
+      </div>
+    </div>
+
+    <footer>
+      <div class="menu">
+        <a href="index.html">Accueil</a>
+        <a href="rabbitHole.html">Rabbit Hole</a>
+        <a href="artefact.html">Artefact</a>
+        <a href="other.html">Autre</a>
+        <a href="about.html">À propos</a>
+      </div>
+    </footer>
+
+    <script>
+      const sections = [
+        { id: "img1", color: "#E1B7B7" },
+        { id: "img2", color: "#D3E0DC" },
+        { id: "img3", color: "#8C8C8C" },
+        { id: "img4", color: "#F0E68C" },
+        { id: "img5", color: "#F4A300" },
+        { id: "img6", color: "#56A0D3" },
+        { id: "img7", color: "#3B9D5F" },
+        { id: "img8", color: "#F44336" },
+        { id: "img9", color: "#4CAF50" },
+        { id: "img10", color: "#2C3E50" },
+        { id: "img11", color: "#8E44AD" },
+        { id: "img12", color: "#FF6347" },
+        { id: "img13", color: "#3C8D40" },
+      ];
+
+      window.addEventListener("scroll", () => {
+        sections.forEach((section) => {
+          const img = document.getElementById(section.id);
+          const rect = img.getBoundingClientRect();
+          if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+            document.body.style.backgroundColor = section.color;
+          }
+        });
+      });
+
+      window.addEventListener("load", () => {
+        const currentPage = window.location.pathname.split("/").pop();
+        const menuLinks = document.querySelectorAll(".menu a");
+
+        menuLinks.forEach((link) => {
+          if (link.getAttribute("href") === currentPage) {
+            link.classList.add("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
